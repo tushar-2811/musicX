@@ -1,6 +1,6 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 
-const ApiHandler = (handler:RequestHandler) : RequestHandler => {
+const AsyncHandler = (handler:RequestHandler) : RequestHandler => {
      return async (req:Request , res:Response , next:NextFunction) => {
         try {
             await handler(req,res,next);
@@ -13,4 +13,4 @@ const ApiHandler = (handler:RequestHandler) : RequestHandler => {
      }
 }
 
-export default ApiHandler;
+export default AsyncHandler;
