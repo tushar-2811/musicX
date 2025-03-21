@@ -1,3 +1,4 @@
+import { AuthenticatedRequest } from "../middleware/auth_middleware.js";
 import { User } from "../models/user.model.js";
 import { registerSchema, signInSchema } from "../types/user.types.js";
 import AsyncHandler from "../utils/asyncHandler.js";
@@ -100,5 +101,19 @@ export const signInController = AsyncHandler(async(req , res) => {
             user : userData
         }
      })
+
+})
+
+
+export const myProfileController = AsyncHandler(async(req:AuthenticatedRequest , res) => {
+      const user = req.user;
+
+      res.status(201).json({
+        status : true,
+        message : "User found",
+        data : {
+            user
+        }
+      })
 
 })

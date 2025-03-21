@@ -77,3 +77,13 @@ export const signInController = AsyncHandler(async (req, res) => {
         }
     });
 });
+export const myProfileController = AsyncHandler(async (req, res) => {
+    const user = req.user;
+    res.status(201).json({
+        status: true,
+        message: "User found",
+        data: {
+            user
+        }
+    });
+});
