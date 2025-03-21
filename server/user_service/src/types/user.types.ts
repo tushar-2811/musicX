@@ -5,4 +5,10 @@ export const registerSchema = z.object({
     name: z.string().min(4 , {message : "Name must have 4 characters"}),
     password: z.string().min(6 , {message : "please enter a strong password"}),
   });
+
+  export const signInSchema = z.object({
+    email: z.string().email({message : "Email is required"}),
+    password: z.string().min(6 , {message : "please enter a strong password"}),
+  });
+  
   
