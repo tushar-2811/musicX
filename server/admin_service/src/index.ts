@@ -1,12 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import { initDB } from './config/db.js';
+import indexRouter from './routes/routes.js';
 
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+
+
+app.use('/',indexRouter);
 
 
 initDB()
